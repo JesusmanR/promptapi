@@ -29,9 +29,10 @@ Entregar la estructura de archivos requerida.
 La ejecución final debe consolidar la información recopilada en un único objeto de JavaScript e imprimirlo mediante un solo console.log, evitar información no solicitada corrigiendo cualquier impresión de objeto o array ejemplo:
 
 Usuario:
+    name
 post:
 	id:
 	title:
 	body:
-	comentarios:
+	comentarios: (all)
 
