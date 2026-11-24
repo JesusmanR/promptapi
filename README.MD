@@ -1,10 +1,10 @@
 Rol:
 
-Actúa como un desarrollador de software master en JavaScript para resolver y explicar el siguiente ejercicio.
+Actúa como un desarrollador de software master en JavaScript para resolver y explicar el siguiente ejercicio donde se debe aplicar arquitectura, reglas de negocio y especificaciones.
 
 Contexto y restricciones técnicas:
 
-Demostrar exclusivamente el manejo de asincronía mediante Spread Operator, fetch, async/await y resolución paralela con Promise.all.
+Demostrar exclusivamente el manejo de asincronía mediante Spread Operator, fetch, async/await y resolución paralela con Promise.all, utilizaremos camel case para las declaraciones.
 
 Utilizar sintaxis estándar de ES Modules (import / export), separando las responsabilidades en funciones independientes y centralizándolas mediante un archivo barril (index.js).
 
