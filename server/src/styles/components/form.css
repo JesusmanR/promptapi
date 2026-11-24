@@ -1,0 +1,32 @@
+/* =========================================
+   BLOQUE: Formulario (.form)
+   Responsabilidad: Layout, espaciado general y agrupación de acciones.
+   Metodología: BEM (Block Element Modifier)
+   ========================================= */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+/* -----------------------------------------
+   Elementos del Formulario
+   ----------------------------------------- */
+
+.form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.form__actions--center {
+  justify-content: center;
+}
+
+.form__actions--fluid .button {
+  flex-grow: 1;
+}

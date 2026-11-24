@@ -1,0 +1,24 @@
+/* Bloque alerta flotante: mensajes semánticos de alta visibilidad sobre fondo oscuro. */
+.alert {
+  position: fixed;
+  right: var(--space-lg);
+  bottom: var(--space-lg);
+  z-index: var(--z-index-alert);
+  max-width: var(--size-alert-max-width);
+  padding: var(--space-md) var(--space-comfortable);
+  border-radius: var(--radius);
+  color: var(--color-text);
+  font-weight: var(--font-weight-semibold);
+  background-color: var(--color-surface-active);
+}
+
+.alert--success {
+  background-color: var(--color-green);
+  color: var(--color-on-accent);
+}
+
+.alert--info {
+  background-color: var(--color-blue-light);
+  color: var(--color-on-accent);
+}
+

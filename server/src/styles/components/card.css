@@ -1,0 +1,110 @@
+/* Bloque de tarjeta: superficie elevada por contraste, sin bordes divisores. */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  /* Borde sutil para separar la tarjeta del fondo, sin sombras. */
+  border: var(--border-width-base) solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  font-family: var(--font-family);
+  color: var(--color-text);
+  transition: background-color var(--transition-normal), transform var(--transition-normal);
+}
+
+/* -----------------------------------------
+   Elementos Internos (Layout con respiración)
+   ----------------------------------------- */
+
+/* Imagen opcional en la parte superior */
+.card__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: var(--aspect-ratio-card-media);
+  object-fit: cover;
+  display: block;
+}
+
+/* Encabezado de la tarjeta. */
+.card__header {
+  padding: var(--space-xl) var(--space-xl) var(--space-zero);
+  background-color: var(--color-transparent);
+}
+
+.card__title {
+  margin: var(--space-zero);
+  color: var(--color-text);
+  font-size: var(--font-size-title);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-normal);
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.card__subtitle {
+  margin: var(--space-compact) var(--space-zero) var(--space-zero);
+  color: var(--color-muted);
+  font-size: var(--font-size-secondary);
+  font-weight: var(--font-weight-regular);
+}
+
+/* Cuerpo de la tarjeta: Área de contenido principal */
+.card__body {
+  padding: var(--space-xl);
+  flex-grow: 1; /* Ocupa el espacio restante si se agrupan en grid */
+  line-height: 1.6;
+  font-size: var(--font-size-base);
+}
+
+.card__body [role="tabpanel"] {
+  overflow-x: auto;
+}
+
+/* Pie de página: Ideal para botones de acción planos */
+.card__footer {
+  padding: var(--space-comfortable) var(--space-xl);
+  background-color: var(--color-surface-hover);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Acciones alineadas a la derecha */
+  gap: var(--space-md);
+}
+
+/* =========================================
+   MODIFICADORES DE VARIANTE
+   ========================================= */
+
+/* --- Interactiva: elevación por cambio de tono de fondo --- */
+.card--interactive {
+  cursor: pointer;
+}
+.card--interactive:hover {
+  background-color: var(--color-surface-hover);
+  transform: translateY(calc(var(--space-zero) - var(--space-xs)));
+}
+.card--interactive:active {
+  transform: scale(var(--scale-card-press));
+}
+
+/* --- Las variantes conservan superficies neutras y el acento en los CTA --- */
+.card--primary,
+.card--info,
+.card--warning {
+  background-color: var(--color-surface);
+}
+
+/* --- Ghost (sin superficie, solo contenido) --- */
+.card--ghost {
+  background-color: var(--color-transparent);
+}
+
+@media (max-width: 600px) {
+  .card__header {
+    padding: var(--space-lg) var(--space-md) var(--space-zero);
+  }
+
+  .card__body {
+    padding: var(--space-md) var(--space-sm);
+  }
+}

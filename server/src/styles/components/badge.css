@@ -1,0 +1,32 @@
+/* Bloque badge: etiqueta de estado compacta. El color de cada modificador sale de los acentos corporativos. */
+
+.badge {
+  display: inline-block;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-family);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-normal);
+  white-space: nowrap;
+  color: var(--color-text);
+  background-color: var(--color-surface-active);
+}
+
+/* --- Pendiente: amarillo de atención --- */
+.badge--pending {
+  background-color: var(--color-yellow);
+  color: var(--color-on-accent);
+}
+
+/* --- En progreso: azul claro informativo --- */
+.badge--in-progress {
+  background-color: var(--color-blue-light);
+  color: var(--color-on-accent);
+}
+
+/* --- Completada: verde corporativo --- */
+.badge--completed {
+  background-color: var(--color-green);
+  color: var(--color-on-accent);
+}

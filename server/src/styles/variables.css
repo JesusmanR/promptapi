@@ -1,0 +1,106 @@
+/* Tokens visuales tema oscuro (inspirado en Spotify) con acentos de la identidad SENA. */
+:root {
+  color-scheme: dark;
+
+  /* --- Acentos corporativos SENA --- */
+  --color-green: #39A900;
+  --color-yellow: #FFCE40;
+  --color-blue-light: #82DEF0;
+
+  /* --- Fondos y superficies (de más profundo a más elevado) --- */
+  --color-background: #121212;
+  --color-surface: #181818;
+  --color-surface-hover: #242424;
+  --color-surface-active: #333333;
+  --color-transparent: transparent;
+
+  /* --- Texto --- */
+  --color-text: #FFFFFF;
+  --color-muted: #B3B3B3;
+  --color-on-accent: #121212;
+
+  /* --- Bordes y separadores --- */
+  --color-border: #2A2A2A;
+  --color-border-strong: #727272;
+  --color-focus: var(--color-yellow);
+
+  /* --- Feedback --- */
+  --color-error: #FF6B6B;
+  --color-error-background: #2A1214;
+  --color-modal-backdrop: rgba(0, 0, 0, 0.7);
+  --shadow-focus-ring: 0 0 0 var(--border-width-base) var(--color-green);
+  --shadow-identity-soft: 0 0 14px rgba(57, 169, 0, 0.35);
+  --shadow-drawer: 0 8px 24px rgba(0, 0, 0, 0.6);
+
+  /* --- Layout de la aplicación (App Shell) --- */
+  --color-sidebar: #000000;
+  --color-overlay: rgba(0, 0, 0, 0.6);
+
+  /* --- Pesos tipográficos y estados --- */
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --opacity-disabled: 0.65;
+  --scale-hover: 1.02;
+  --scale-press: 0.98;
+  --scale-card-press: 0.99;
+  --filter-disabled: grayscale(1);
+  --filter-brighten: brightness(1.04);
+
+  /* --- Espaciado --- */
+  --space-zero: 0;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-compact: 0.35rem;
+  --space-medium: 0.75rem;
+  --space-comfortable: 1.25rem;
+  --space-xxl: 3rem;
+
+  /* --- Bordes y formas --- */
+  --border-width-base: 1px;
+  --border-width-thick: 2px;
+  --border-width-focus: 3px;
+  --border-width-accent: 4px;
+  --border-width-emphasis: 6px;
+  --radius: 8px;
+  --radius-pill: 500px;
+
+  /* --- Transiciones --- */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-normal: 0.3s ease-in-out;
+  
+  /* Tipografía */
+  --font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-size-base: 1rem;
+  --font-size-small: 0.85rem;
+  --font-size-secondary: 0.9rem;
+  --font-size-body-small: 0.95rem;
+  --font-size-action: 1.2rem;
+  --font-size-card-title: 1.35rem;
+  --font-size-title: 1.5rem;
+  --letter-spacing-normal: 0.02em;
+  --letter-spacing-wide: 0.03em;
+
+  /* --- Dimensiones y desplazamientos --- */
+  --size-button-small: 2.5rem;
+  --size-button-icon: 1.25em;
+  --size-input-textarea: 100px;
+  --size-modal-width: 90vw;
+  --size-modal-max-width: 600px;
+  --size-alert-max-width: 360px;
+  --size-page-max-width: 960px;
+  --size-sidebar-width: 16rem;
+  --size-header-height: 4rem;
+  --size-touch-target: 2.75rem;
+  --size-icon-nav: 1.25rem;
+  --size-table-min-width: 40rem;
+  --aspect-ratio-card-media: 16 / 9;
+  --z-index-header: 20;
+  --z-index-backdrop: 30;
+  --z-index-drawer: 40;
+  --z-index-alert: 100;
+  --offset-error-animation: -2px;
+}

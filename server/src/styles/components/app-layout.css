@@ -1,0 +1,290 @@
+/* Bloque App Shell: layout principal. Mobile-first: una columna con el menú como cajón deslizable;
+   a partir de 768px pasa a CSS Grid con la barra lateral fija. Las media queries usan literales porque
+   las custom properties no se pueden usar dentro de @media. */
+
+.app-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr);
+  min-height: 100vh;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+/* -----------------------------------------
+   Cabecera superior (sticky)
+   ----------------------------------------- */
+
+.app-header {
+  position: sticky;
+  top: var(--space-zero);
+  z-index: var(--z-index-header);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  min-height: var(--size-header-height);
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--color-surface);
+  border-bottom: var(--border-width-base) solid var(--color-border);
+}
+
+.app-header__menu-button {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-touch-target);
+  height: var(--size-touch-target);
+  padding: var(--space-zero);
+  border: none;
+  border-radius: var(--radius);
+  background-color: var(--color-transparent);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.app-header__menu-button:hover {
+  background-color: var(--color-surface-hover);
+}
+
+.app-header__menu-button:focus-visible,
+.app-sidebar__link:focus-visible {
+  outline: var(--border-width-focus) solid var(--color-focus);
+  outline-offset: var(--border-width-thick);
+}
+
+.app-header__icon {
+  width: var(--size-icon-nav);
+  height: var(--size-icon-nav);
+  fill: currentColor;
+}
+
+.app-header__title {
+  flex: 1;
+  min-width: 0;
+  margin: var(--space-zero);
+  overflow: hidden;
+  color: var(--color-text);
+  font-size: var(--font-size-title);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Zona reservada para acciones de la persona usuaria (perfil, cerrar sesión, login). */
+.app-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* -----------------------------------------
+   Menú lateral (cajón en móvil, barra fija en escritorio)
+   ----------------------------------------- */
+
+.app-sidebar {
+  position: fixed;
+  inset-block: var(--space-zero);
+  inset-inline-start: var(--space-zero);
+  z-index: var(--z-index-drawer);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  width: var(--size-sidebar-width);
+  max-width: 85vw;
+  padding: var(--space-lg) var(--space-md);
+  overflow-y: auto;
+  background-color: var(--color-sidebar);
+  border-inline-end: var(--border-width-base) solid var(--color-border);
+  transform: translateX(-100%);
+  visibility: hidden;
+  transition: transform var(--transition-normal), visibility var(--transition-normal);
+}
+
+.app-layout--sidebar-open .app-sidebar {
+  transform: none;
+  visibility: visible;
+  box-shadow: var(--shadow-drawer);
+}
+
+.app-sidebar__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.app-sidebar__brand {
+  padding: var(--space-zero) var(--space-sm);
+}
+
+/* Cierra el cajón en móvil. Se oculta en escritorio, donde el menú es fijo. */
+.app-sidebar__close-button {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-touch-target);
+  height: var(--size-touch-target);
+  padding: var(--space-zero);
+  border: none;
+  border-radius: var(--radius);
+  background-color: var(--color-transparent);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.app-sidebar__close-button:hover {
+  background-color: var(--color-surface-hover);
+}
+
+.app-sidebar__close-button:focus-visible {
+  outline: var(--border-width-focus) solid var(--color-focus);
+  outline-offset: var(--border-width-thick);
+}
+
+.app-sidebar__close-icon {
+  width: var(--size-icon-nav);
+  height: var(--size-icon-nav);
+  fill: currentColor;
+}
+
+.app-sidebar__title {
+  margin: var(--space-zero);
+  color: var(--color-green);
+  font-size: var(--font-size-card-title);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+}
+
+.app-sidebar__subtitle {
+  margin: var(--space-xs) var(--space-zero) var(--space-zero);
+  color: var(--color-muted);
+  font-size: var(--font-size-secondary);
+}
+
+.app-sidebar__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin: var(--space-zero);
+  padding: var(--space-zero);
+  list-style: none;
+}
+
+.app-sidebar__link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  min-height: var(--size-touch-target);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius);
+  color: var(--color-muted);
+  font-size: var(--font-size-body-small);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.app-sidebar__link:hover {
+  background-color: var(--color-surface-hover);
+  color: var(--color-text);
+}
+
+.app-sidebar__link--active,
+.app-sidebar__link--active:hover {
+  background-color: var(--color-surface-active);
+  color: var(--color-text);
+}
+
+.app-sidebar__icon {
+  flex-shrink: 0;
+  width: var(--size-icon-nav);
+  height: var(--size-icon-nav);
+  fill: currentColor;
+}
+
+/* -----------------------------------------
+   Fondo superpuesto del cajón (solo móvil)
+   ----------------------------------------- */
+
+.app-layout__backdrop {
+  position: fixed;
+  inset: var(--space-zero);
+  z-index: var(--z-index-backdrop);
+  background-color: var(--color-overlay);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-normal), visibility var(--transition-normal);
+}
+
+.app-layout--sidebar-open .app-layout__backdrop {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* -----------------------------------------
+   Área principal
+   ----------------------------------------- */
+
+.app-main {
+  min-width: 0;
+  padding: var(--space-md) var(--space-sm);
+}
+
+/* Ancho máximo de la vista de la feature, centrado dentro del área principal. */
+.app-main__content {
+  max-width: var(--size-page-max-width);
+  margin: var(--space-zero) auto;
+}
+
+/* -----------------------------------------
+   Escritorio (≥ 768px): sidebar fijo + área principal fluida
+   ----------------------------------------- */
+
+@media (min-width: 768px) {
+  .app-layout {
+    grid-template-columns: var(--size-sidebar-width) minmax(0, 1fr);
+  }
+
+  .app-header {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .app-sidebar {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    position: sticky;
+    top: var(--space-zero);
+    width: auto;
+    max-width: none;
+    height: 100vh;
+    transform: none;
+    visibility: visible;
+  }
+
+  .app-main {
+    grid-column: 2;
+    grid-row: 2;
+    padding: var(--space-xl);
+  }
+
+  .app-header__menu-button,
+  .app-sidebar__close-button,
+  .app-layout__backdrop {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-sidebar,
+  .app-layout__backdrop,
+  .app-header__menu-button,
+  .app-sidebar__link {
+    transition: none;
+  }
+}

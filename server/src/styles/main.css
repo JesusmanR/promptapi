@@ -1,0 +1,103 @@
+/* Hoja principal: importa las demás y define la estructura general de la página. */
+@import "variables.css";
+@import "components/button.css";
+@import "components/badge.css";
+@import "components/card.css";
+@import "components/table.css";
+@import "components/form.css";
+@import "components/input.css";
+@import "components/alert.css";
+@import "components/modal.css";
+@import "components/app-layout.css";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: var(--space-zero);
+  font-family: var(--font-family);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  line-height: 1.5;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-medium);
+  margin-bottom: var(--space-lg);
+}
+
+/* Bloque pestañas: filtra la lista entre pendientes y completadas. */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.tabs__tab {
+  padding: var(--space-sm) var(--space-md);
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--color-transparent);
+  color: var(--color-muted);
+  font: inherit;
+  font-size: var(--font-size-action);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.tabs__tab:hover {
+  background-color: var(--color-surface-hover);
+  color: var(--color-text);
+}
+
+.tabs__tab:focus-visible {
+  outline: var(--border-width-focus) solid var(--color-focus);
+  outline-offset: var(--border-width-thick);
+}
+
+.tabs__tab--active,
+.tabs__tab--active:hover {
+  background-color: var(--color-green);
+  color: var(--color-on-accent);
+}
+
+@media (max-width: 600px) {
+  .tabs__tab {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: var(--font-size-body-small);
+  }
+
+  .toolbar .button {
+    padding: var(--space-xs) var(--space-md);
+    font-size: var(--font-size-body-small);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .tabs__tab,
+  .card,
+  .table__cell,
+  .input__control {
+    transition: none;
+  }
+
+  .button:hover,
+  .button:active,
+  .card--interactive:hover,
+  .card--interactive:active {
+    transform: none;
+  }
+
+  .input__error {
+    animation: none;
+  }
+}
